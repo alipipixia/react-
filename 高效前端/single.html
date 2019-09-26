@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    //创建静态变量
+    var Conf = (function(){
+        // 私有变量
+        var conf = {
+            MAX_NUM: 100,
+            MIN_NUM: 1,
+            COUNT: 1000,
+        }
+
+        return {
+            get: function(name) {
+                return conf[name]? conf[name]: null;
+            }
+        }
+    })();
+
+    //使用创建了的静态变量
+    var c = Conf.get('COUNT');
+    console.log(c);
+    var min = Conf.get('MIN_NUM');
+    console.log(min);
+    var max = Conf.get('MAX_NUM');
+    console.log(max);
+
+
+    var LazySingle = (function(){
+        //实例单例引用
+        var _instance = null;
+
+        function Single() {
+            return {
+                publicMethods: function(){},
+                publicProperty: 1,
+            }
+        }
+        
+        //获取单例对象接口
+        return function() {
+            //如果为创建单例则创建单例
+            if(!_instance) {
+                _instance = Single();
+            }
+            //
+            return _instance;
+        }
+    })();
+
+    console.log(LazySingle().publicProperty);
+
+    var Singleton = function(name) {
+        this.name = name;
+        //使用instance标志是否创建了实例
+        this.instance = null;
+        this.test = 'test';
+    }
+
+    Singleton.prototype.getName = function() {
+        console.log(this.name);
+    }
+
+    Singleton.getInstance = function(name) {
+        if (!this.instance) {
+            this.instance = new Singleton(name);
+        }
+        return this.instance;
+    }
+
+    var aa = Singleton.getInstance('aa');
+    var bb = Singleton.getInstance('bbb');
+    console.log(aa);
+    console.log(bb);
+    console.log(aa===bb);
+
+    aa.getName();
+    bb.getName();
+</script>
+</html>

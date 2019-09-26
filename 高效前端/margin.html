@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            overflow: hidden;
+        }
+        img {
+            width: 128px;
+            height: 96px;
+        }
+
+        .box-left > img{
+            float: left;
+        }
+        .box-left > p{
+            margin-left: 140px;
+        }
+        /*右浮动 图片DOM在前*/
+        .box-right > img {
+            float: right;
+        }
+        .box-right > p {
+            margin-right: 140px;
+        }
+        /*顺序一致图片在右侧*/
+        .box-right-same > .full {
+           float: left;
+           width: 100%;
+        }
+        .box-right-same >.full > p{
+            margin-right: 140px;
+        }
+        .box-right-same > img {
+            float: left;
+            margin-left: -128px;
+        }
+        
+        ul,li{
+            list-style: none;
+        }
+        ul{
+            border: 1px solid #000;
+        }
+        li{
+            margin-top: 30px;
+            margin-bottom: 30px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="box box-left">
+        <img src="./1.jpg">
+        <p>DOM文档流中，图片定宽在左侧，文字内容在右侧，和视觉呈现的前后顺序一致。</p>
+    </div>
+
+    <div class="box box-right">
+        <img src="./1.jpg">
+        <p>DOM文档流中，图片定宽在右侧，文字内容在左侧，和视觉呈现的前后顺序不一致。</p>
+    </div>
+
+    <div class="box box-right-same">
+        <div class="full">
+            <p>DOM文档流中，图片定宽在右侧，文字内容在左侧，和视觉呈现的前后顺序不一致。</p>
+        </div>
+        <img src="./1.jpg">
+    </div>
+
+    <ul>
+        <li>
+            <div class="list">第1个li</div>
+        </li>
+        <li>
+            <div class="list">第2个li</div>
+        </li>
+        <li>
+            <div class="list">第3个li</div>
+        </li>
+        <li>
+            <div class="list">第4个li</div>
+        </li>
+        <li>
+            <div class="list">第5个li</div>
+        </li>
+    </ul>
+</body>
+</html>

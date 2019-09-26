@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>无刷新页面提交表单  只能有一个表单元素 不常用</h1>
+    <form action="/url.do" method="post" target="targetIfr">
+        <input type="text" name="name" />
+    </form>
+    <iframe name="targetIfr" style="display:none"></iframe>
+    <!-- <hr>
+    <h3> 通过type=submit提交</h3>
+    <button id="btn">点击提交表单</button>
+    <form id="form" action="/url.do" methods="post" target="targetIfr">
+        <input type="text" name="name" />
+        <input type="text" name="pwd" />
+        <input type="submit" value="提交" style="display:none">
+    </form> -->
+    <hr>
+    <h3>js提交表单</h3>
+    <button id="btn">点击提交表单</button>
+    <form id="form" action="/url.do" method="post" target="targetIfr">
+        <input type="text" name="name" />
+        <input type="text" name="pwd" id="pwd" />
+        <input type="submit" value="提交" style="display:none">
+    </form>
+    <hr>
+    <h3>ajax异步提交表单数据</h3>
+    <form id="formAjax" method="post">
+        <input type="text" name="name" id="name" />
+        <input type="text" name="pwd" id="pwd" />
+    </form>
+    
+</body>
+</html>
+<script src="./jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        var form = $('#form');
+
+        $('#btn').click(function() {
+            form.submit();
+        })
+
+        var params = { "name": $("#name").val() } 
+        $.ajax({
+            type: "POST",
+            url: "/url.do", 
+            data: params, 
+            dataType: "json", 
+            success:function (respMsg) { }
+        });
+    })
+</script>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>css3美化checkbox</title>
+    <style>
+        label.bui-checkbox-label input[type="checkbox"] {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        label.bui-checkbox-label .bui-checkbox {
+            display: inline-block;
+            position: relative;
+            width: 13px;
+            height: 13px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            vertical-align: -2px;
+            margin-right: 5px;
+        }
+
+        label.bui-checkbox-label input[type="checkbox"]:checked+.bui-checkbox:after {
+            position: absolute;
+            content: "";
+            width: 8px;
+            height: 4px;
+            border-left: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            transform: rotate(-45deg) translate(-50%, -50%);
+            /*top:50%;*/
+            left: 50%;
+        }
+
+        label.bui-checkbox-label input[type="checkbox"]:checked+.bui-checkbox {
+            background-color: #00B066;
+        }
+
+        label.bui-checkbox-label input[type="checkbox"]:disabled+.bui-checkbox {
+            background-color: #e8e8e8;
+            border: 1px solid #979797;
+        }
+
+        label.bui-checkbox-label input[type="checkbox"]:disabled:checked+.bui-checkbox:after {
+            border-color: #000;
+        }
+
+        label.bui-checkbox-label.bui-checkbox-anim .bui-checkbox {
+            -webkit-transition: background-color ease-in-out .3s;
+            transition: background-color ease-in-out .3s;
+        }
+    </style>
+</head>
+
+<body>
+    <h4>有简单的背景动画：</h4>
+    <label class="bui-checkbox-label bui-checkbox-anim">
+        <input type="checkbox" name="sex">
+        <i class="bui-checkbox"></i>男
+    </label>
+    <label class="bui-checkbox-label bui-checkbox-anim">
+        <input type="checkbox" name="sex">
+        <i class="bui-checkbox"></i>女
+    </label>
+    <h4>无背景动画：</h4>
+    <label class="bui-checkbox-label">
+        <input type="checkbox" name="sex">
+        <i class="bui-checkbox"></i>男
+    </label>
+    <label class="bui-checkbox-label">
+        <input type="checkbox" name="sex">
+        <i class="bui-checkbox"></i>女
+    </label>
+    <h4>禁用状态（disabled）：</h4>
+    <label class="bui-checkbox-label">
+        <input type="checkbox" name="sex" disabled="disabled">
+        <i class="bui-checkbox"></i>男
+    </label>
+    <label class="bui-checkbox-label">
+        <input type="checkbox" name="sex" disabled="" checked="">
+        <i class="bui-checkbox"></i>女
+    </label>
+</body>
+
+</html>

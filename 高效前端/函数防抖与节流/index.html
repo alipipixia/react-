@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      width: 2000px;
+      height: 2000px;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="./debounce.js"></script>
+  <script>
+    // import debounce from './debounce.js'
+
+    function onScroll_1() {
+      console.log('执行滚动处理函数啦')
+    }
+    window.addEventListener('scroll', debounced(onScroll_1, 1000))
+  </script>
+</body>
+
+</html>

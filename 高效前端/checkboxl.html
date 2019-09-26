@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        label.bui-checkbox-label input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        label.bui-checkbox-label .bui-checkbox {
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            background: #fff;
+            border: 1px solid #ddd;
+            vertical-align: -2px;
+            margin-right: 5px;
+            position: relative;
+        }
+
+        label.bui-checkbox-label input[type="checkbox"]:checked+.bui-checkbox {
+            background: #00B066;
+        }
+
+        label.bui-checkbox-label input[type="checkbox"]:checked+.bui-checkbox::after {
+            position: absolute;
+            content: "";
+            width: 8px;
+            height: 4px;
+            border-left: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            transform: rotate(-45deg) translate(-50%, -50%);
+            /*top:50%;*/
+            left: 50%;
+        }
+
+        label.bui-checkbox-label.bui-checkbox-anim .bui-checkbox {
+            transition: background ease-out .5s;
+        }
+
+
+        label.bui-checkbox-label input[type="checkbox"]:disabled+.bui-checkbox {
+            background-color: #e8e8e8;
+            border: 1px solid #979797;
+        }
+
+        label.bui-checkbox-label input[type="checkbox"]:disabled:checked+.bui-checkbox::after {
+            position: absolute;
+            content: "";
+            width: 8px;
+            height: 4px;
+            border-left: 2px solid #000;
+            border-bottom: 2px solid #000;
+            transform: rotate(-45deg) translate(-50%, -50%);
+            /*top:50%;*/
+            left: 50%;
+        }
+
+        .triple {
+            border-width: 10px;
+            border-style: solid;
+            width: 10px;
+            height: 10px;
+            background: hotpink;
+            border-color: #f30 #00f #396 #0f0;
+        }
+
+        .test {
+            font-family: simsun;
+            font-size: 24px;
+            line-height: 36px;
+            background: yellow;
+        }
+
+        .test>span {
+            background: #fff;
+        }
+
+        /* .box {
+            height: 120px;
+            background-color: #f0f3f9;
+        }
+
+        .content {
+            display: inline-block;
+            line-height: 20px;
+            margin: 0 20px;
+            vertical-align: middle;
+        } */
+
+        .box{
+            line-height: 32px;
+        }
+        .box > span{
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <h4>有简单的背景动画：</h4>
+    <label class="bui-checkbox-label bui-checkbox-anim">
+        <input type="checkbox" name="sex">
+        <i class="bui-checkbox"></i>男
+    </label>
+    <label class="bui-checkbox-label bui-checkbox-anim">
+        <input type="checkbox" name="sex">
+        <i class="bui-checkbox"></i>女
+    </label>
+    <h4>无简单的背景动画：</h4>
+    <label class="bui-checkbox-label">
+        <input type="checkbox" name="sex">
+        <i class="bui-checkbox"></i>男
+    </label>
+    <label class="bui-checkbox-label">
+        <input type="checkbox" name="sex">
+        <i class="bui-checkbox"></i>女
+    </label>
+
+    <h4>禁用disabled</h4>
+    <label class="bui-checkbox-label">
+        <input type="checkbox" name="sex" disabled>
+        <i class="bui-checkbox"></i>男
+    </label>
+    <label class="bui-checkbox-label">
+        <input type="checkbox" name="sex" disabled checked>
+        <i class="bui-checkbox"></i>女
+    </label>
+    <div class="triple"></div>
+    <div class="test">
+        <span>sphinx</span>
+    </div>
+    <!-- <div class="box">
+        <div class="content">基于行高实现的多行文本垂直居中效果需要vertical-align属性帮助</div>
+    </div> -->
+    <div class="box">
+        <span>基于行高实现的多行文本垂直居中效果需要vertical-align属性帮助</span>
+    </div>
+</body>
+
+</html>
