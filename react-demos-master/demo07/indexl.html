@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        var MyCompnent = React.createClass({
+            handleClick: function() {
+                this.refs.myTextInput.focus();
+            },
+            render: function() {
+                return (
+                    <div>
+                        <input type="text" ref="myTextInput" ></input>
+                        <input type="button" value="点击自动聚焦"  onClick={this.handleClick}></input>
+                    </div>
+                );
+            },
+        });
+
+        ReactDOM.render(
+            <MyCompnent />,
+            document.getElementById('example')
+        )
+    </script>
+</body>
+</html>

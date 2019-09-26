@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+    <style>
+        .red{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>react允许将代码封装成组件，然后像普通HTML标签一样进行插入</h2>
+        <h2>使用React.createClass方法生成一个组件类</h2>
+        <h2>React.createClass方法的参数是一个对象，对象中render函数用于生成组件，生成的组件只有一个顶级元素</h2>
+    </div>
+    <div>插入一个h1</div>
+    <div id="example"></div>
+
+    <div>插入几个h1</div>
+    <div id="example2"></div>
+    <script type="text/babel">
+        const HelloMessage = React.createClass({
+            render: function(){
+                return <h1 className={this.props.name=='Pipixia' ? 'red': 'black'}>Hello {this.props.name}</h1>
+            }
+        });
+
+        ReactDOM.render(
+            <HelloMessage name="Pipixia" />,
+            
+            document.getElementById('example')
+        )
+    </script>
+</body>
+</html>
