@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* h3{
+            line-height: 30px;
+            font-size: 14px;
+        } */
+
+        /* h3{
+            line-height: 30px;
+            font-size: 14px;
+        }
+        h3 > span{
+            padding-top: 50px;
+        }
+        .div1{
+            padding: 25% 50%;
+        } */
+
+        /*利用padding实现头图的等比例缩放的效果的样式  */
+
+        /* .box{
+            padding: 10% 50%;
+            position: relative;
+        }
+
+        .box > img{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        } */
+
+        /*padding作用在内联元素上*/
+
+        /* .box{
+            border: 1px dashed #000;
+        }
+        span{
+            padding: 50px;
+            background-color: grey;
+        } */
+
+        /* ul,ol{
+            background-color: gray;
+            padding-left: 22px;
+        }
+        li {
+            font-size: 30px;
+        } */
+
+        /*利用padding实现图标*/
+
+        .demo i {
+            margin: 20px;
+        }
+
+        .icon-menu {
+            display: inline-block;
+            width: 140px;
+            height: 10px;
+            padding: 35px 0;
+            border-top: 10px solid;
+            border-bottom: 10px solid;
+            background-color: currentColor;
+            /* background-clip: content-box; */
+            /* background-clip: border-box; */
+            background-clip: content-box;
+        }
+
+        .icon-dot {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 10px solid;
+            border-radius: 50%;
+            background-color: currentColor;
+            background-clip: content-box;
+        }
+
+
+        /* 隐藏input */
+
+        label.bui-radios-label input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* 自定义radio */
+
+        label.bui-radios-label .bui-radios {
+            position: relative;
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            background-color: #fff;
+            border: 1px solid #979797;
+            border-radius: 50%;
+            vertical-align: -2px;
+            margin-right: 5px;
+        }
+
+        /* 单选框选中后自定义radio的样式 */
+
+        label.bui-radios-label input[type="radio"]:checked+.bui-radios::after {
+            position: absolute;
+            content: '';
+            width: 7px;
+            height: 7px;
+            background: #fff;
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+        }
+
+        label.bui-radios-label input[type="radio"]:checked+.bui-radios {
+            background-color: #00B066;
+            border: 1px solid #00B066;
+        }
+
+        label.bui-radios-label input[type="radio"]:disabled+.bui-radios {
+            background-color: #e8e8e8;
+            border: 1px solid #979797;
+        }
+
+        /* 自定义radio的过渡效果 */
+        label.bui-radios-label.bui-radios-anim .bui-radios {
+            transition: background-color ease-out 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <h3 id="hash">标题</h3> -->
+
+    <!-- <h3><span id="hash">标题</span></h3>
+<div class="div1"></div> -->
+
+    <!-- <h1>利用padding实现头图的等比例缩放的效果</h1>
+<div class="box">
+    <img src="./cover-5-1.jpg" alt="">
+</div> -->
+
+    <!-- <h2>padding作用在内联元素上</h2>
+<div class="box">
+    
+    <span></span>
+</div> -->
+
+    <!-- <ul>
+    <li>这是第一个li</li>
+    <li>这是第二个li</li>
+    <li>这是第三个li</li>
+</ul>
+<ol>
+    <li>ol/li元素的padding-left,但是单位是px不是em</li>
+    <li>这是第2个li</li>
+    <li>这是第3个li</li>
+</ol> -->
+
+    <div class="demo">
+        <i class="icon-menu"></i>
+        <i class="icon-dot"></i>
+    </div>
+
+
+
+    <!-- 表单的list属性指定对应datalist -->
+    <input list="browsers" name="browser" id="browsersInput">
+    <!-- 同时datalist必须 id必须和表单的 list属性一样 -->
+    <datalist id="browsers">
+        <option label="1" value="Internet Explorer"></option>
+        <option label="2" value="Firefox"></option>
+        <option label="3" value="Chrome"></option>
+        <option label="4" value="Opera"></option>
+        <option label="5" value="Safari"></option>
+    </datalist>
+
+    <div>
+        <h4>有简单的背景动画：</h4>
+        <label class="bui-radios-label bui-radios-anim">
+            <input type="radio" name="sex">
+            <i class="bui-radios"></i>男
+        </label>
+        <label class="bui-radios-label bui-radios-anim">
+            <input type="radio" name="sex">
+            <i class="bui-radios"></i>女
+        </label>
+        <h4>无背景动画：</h4>
+        <label class="bui-radios-label">
+            <input type="radio" name="sex">
+            <i class="bui-radios"></i>男
+        </label>
+        <label class="bui-radios-label">
+            <input type="radio" name="sex">
+            <i class="bui-radios"></i>女
+        </label>
+        <h4>禁用状态（disabled）：</h4>
+        <label class="bui-radios-label">
+            <input type="radio" name="sex" disabled="disabled">
+            <i class="bui-radios"></i>男
+        </label>
+        <label class="bui-radios-label">
+            <input type="radio" name="sex" disabled="disabled">
+            <i class="bui-radios"></i>女
+        </label>
+    </div>
+</body>
+
+<script>
+    var config = (function () {
+        var conf = {
+            MAX_NUM: 100,
+            MIN_NUM: 0,
+            COUNT: 100,
+        }
+        return {
+            //取值器方法
+            get: function (name) {
+                return conf[name] ? conf[name] : null;
+            }
+        }
+    })()
+
+    //惰性载入单例
+    var LazySingle = (function () {
+        //单例实例引用
+        var _instance = null;
+        //单例
+        function Single() {
+            /*这里定义私有属性和方法*/
+            return {
+                publicMethod: function () {},
+                publicProperty: '1.0',
+            }
+        }
+        //获取单例对象接口
+        return function () {
+            //如果不是这个单例九江创建单例模式
+            if (!_instance) {
+                _instance = Single();
+            }
+            return _instance;
+        }
+    })()
+
+    console.log(LazySingle().publicProperty);
+
+    var moduleDemo = (function name(params) {
+        function bar() {};
+
+        function foo() {};
+
+        function map() {};
+
+        return {
+            bar: bar,
+            foo: foo,
+            map: map,
+        }
+    })();
+    //访问模块内部的方法
+    moduleDemo.bar();
+
+    var dom = document.querySelector('#browsersInput');
+
+    function handleChange(e) {
+        console.log(e.target.value);
+    }
+    dom.addEventListener('change', handleChange, false)
+</script>
+
+</html>

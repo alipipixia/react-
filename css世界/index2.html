@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!-- 表单的list属性指定对应datalist -->
+<input list="browsers" name="browser" id="browsersInput">
+<!-- 同时datalist必须 id必须和表单的 list属性一样 -->
+<datalist id="browsers"> 
+<option value="Internet Explorer"/>
+<option value="Firefox"/>
+<option value="Chrome"/>
+<option value="Opera"/>
+<option value="Safari"/>
+</datalist>
+
+
+</body>
+
+<script>
+    var dom = document.querySelector('#browsersInput');
+
+    function handleChange(e) {
+        console.log(e.target.value);
+    }
+    dom.addEventListener('change', handleChange, false)
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 100px;
+        }
+        .tips[data-title] {
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .tips[data-title]::before,
+        .tips[data-title]::after {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            visibility: hidden;
+        }
+
+        .tips[data-title]::before {
+            content: attr(data-title);
+            top: -33px;
+            padding: 2px 10px 3px;
+            line-height: 18px;
+            border-radius: 2px;
+            background-color: #333;
+            text-align: left;
+            color: #fff;
+            font-size: 12px;
+        }
+
+        .tips[data-title]::after {
+            content: "";
+            border: 6px solid transparent;
+            border-top-color: #333;
+            top: -10px;
+        }
+
+        .tips[data-title]:hover::before,
+        .tips[data-title]:hover::after {
+            transition: visibility .1s .1s;
+            visibility: visible;
+        }
+
+        .icon-delete {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: url(/images/6/delete.png) no-repeat center;
+            background-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="javascript:" class="icon-delete tips" data-title="删除">删除</a>
+</body>
+<script>
+    // document.querySelector('.icon-delete').onclick = function () {
+    //     this.style.whiteSpace = 'nowrap';
+    // };
+</script>
+
+</html>
